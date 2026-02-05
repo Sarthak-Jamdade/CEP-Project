@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Dashboard</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+.container{
+    width:400px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+}
+
+input, button{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+}
+
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.logout{
+    background:red;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+<h2>User Dashboard</h2>
+
+<p><b>Name:</b> <span id="name"></span></p>
+<p><b>Age:</b> <span id="age"></span></p>
+<p><b>Phone:</b> <span id="phone"></span></p>
+<p><b>Address:</b> <span id="address"></span></p>
+<p><b>Email:</b> <span id="email"></span></p>
+
+<hr>
+
+<h3>Update Profile</h3>
+
+<input type="text" id="parent_phone" placeholder="Parent Phone">
+<input type="text" id="current_address" placeholder="Current Address">
+
+<button onclick="updateProfile()">Update Profile</button>
+
+<br><br>
+
+<button class="logout" onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+let userEmail = localStorage.getItem("email");
+
+if(!userEmail){
+    window.location.href="login.html";
+}
+
+// Load user data
+fetch("http://127.0.0.1:5000/get-user",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+        email:userEmail
+    })
+})
+.then(res=>res.json())
+.then(data=>{
+    document.getElementById("name").innerText=data.name;
+    document.getElementById("age").innerText=data.age;
+    document.getElementById("phone").innerText=data.phone;
+    document.getElementById("address").innerText=data.address;
+    document.getElementById("email").innerText=data.email;
+    document.getElementById("parent_phone").value=data.parent_phone;
+    document.getElementById("current_address").value=data.current_address;
+});
+
+// Update Profile
+function updateProfile(){
+    let parent_phone=document.getElementById("parent_phone").value;
+    let current_address=document.getElementById("current_address").value;
+
+    fetch("http://127.0.0.1:5000/update-profile",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            email:userEmail,
+            parent_phone:parent_phone,
+            current_address:current_address
+        })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        alert(data.message);
+    });
+}
+
+// Logout
+function logout(){
+    localStorage.removeItem("email");
+    window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>

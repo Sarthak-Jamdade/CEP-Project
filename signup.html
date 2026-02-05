@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+
+        form #Personal_Details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        form #Personal_Details h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+
+        }
+
+        form #Personal_Details input {
+            padding: 8px 15px;
+        }
+
+        form #Personal_Details input.text {
+            width: 32%;
+            font-size: 13px;
+        }
+
+        form #Password {
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form #Password h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        form #Password input {
+            width: 100%;
+            font-size: 13px;
+            padding: 8px 15px;
+            gap: 10px;
+        }
+
+        form #Email_Details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        form #Email_Details h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        form #Email_Details input {
+            width: 85.5%;
+            font-size: 13px;
+            padding: 8px 15px;
+        }
+
+        form #Gender {
+            margin: 15px 0;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        form #Gender h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        form input[type="tel"],
+        form input[type="date"],
+        form textarea {
+            width: 100%;
+            padding: 8px 15px;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        form textarea {
+            resize: none;
+        }
+
+        form #Parents_Father,
+        form #Parents_Mother {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+
+
+        }
+
+        form #Parents_Father h4,
+        form #Parents_Mother h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        form #Parents_Father input {
+            padding: 8px 15px;
+            margin: 6px 0;
+            width: 40%;
+        }
+
+        /* form #Parents_Father input.text1 {
+            width: 38%;
+            font-size: 13px;
+            gap: 40px;
+        } */
+
+        form #Parents_Mother input {
+            padding: 8px 15px;
+            margin: 6px 0;
+            width: 40%;
+        }
+
+        form #Submit_Form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        form #Submit_Form input[type="Signup"] {
+            padding: 15px 10px;
+            background: #667eea;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        form #Submit_Form input[type="Signup"]:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div id="Personal_Details">
+            <h4>Full Name :</h4>
+            <input type="text" class="text" placeholder="First Name" required id="fname">
+            <input type="text" class="text" placeholder="Middle Name" required id="mname">
+            <input type="text" class="text" placeholder="Last Name" required id="lname">
+        </div>
+        <div id="Password">
+            <h4>Password: </h4>
+            <input type="password" name="" id="password" placeholder="Enter Password" required>
+            <input type="password" name="" id="confirm_password" placeholder="Confirm Password" required>
+
+        </div>
+        <div id="Email_Details">
+            <h4>Email : </h4>
+            <input type="email" name="" id="email" placeholder="Email" required>
+        </div>
+        <div id="Gender">
+            <h4>Gender :</h4>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+        </div>
+        <div id="PhoneNo">
+            <h4>Phone Number :</h4>
+            <input type="tel" placeholder="Enter Phone Number" required id="phone">
+        </div>
+        <div id="DOB">
+            <h4>Date of Birth :</h4>
+            <input type="date" required id="dob">
+        </div>
+        <div id="Address">
+            <h4>Address :</h4>
+            <textarea rows="4" cols="40" placeholder="Enter Address" id="address"></textarea>
+        </div>
+        <div id="Parents_Father">
+            <h4>Father's Name :</h4>
+            <input type="text" class="text1" placeholder="Father's Name" required id="father_name">
+            <input placeholder="Father's Contact No." required id="father_phone">
+        </div>
+        <div id="Parents_Mother">
+            <h4>Mother's Name :</h4>
+            <input type="text" class="text1" placeholder="Mother's Name" required id="mother_name">
+            <input placeholder="Mother's Contact No. " required id="mother_phone">
+        </div>
+        <div id="Submit_Form">
+            <input type="Signup" value="Sign Up" onclick="registerUser()">
+            <!-- <input class="styled" type="button" value="Next" /> -->
+        </div>
+    </form>
+
+    <script>
+        function registerUser() {
+
+            let fname = document.getElementById("fname").value;
+            let mname = document.getElementById("mname").value;
+            let lname = document.getElementById("lname").value;
+
+            let full_name = fname + " " + mname + " " + lname;
+
+            let password = document.getElementById("password").value;
+            let confirm_password = document.getElementById("confirm_password").value;
+
+            if (password !== confirm_password) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let dob = document.getElementById("dob").value;
+            let address = document.getElementById("address").value;
+
+            let father_name = document.getElementById("father_name").value;
+            let father_phone = document.getElementById("father_phone").value;
+            let mother_name = document.getElementById("mother_name").value;
+            let mother_phone = document.getElementById("mother_phone").value;
+
+            let gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+            fetch("http://127.0.0.1:5000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: full_name,
+                    email: email,
+                    phone: phone,
+                    dob: dob,
+                    address: address,
+                    gender: gender,
+                    father_name: father_name,
+                    father_phone: father_phone,
+                    mother_name: mother_name,
+                    mother_phone: mother_phone,
+                    password: password
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                });
+        }
+    </script>
+
+
+</body>
+
+</html>
